@@ -1,0 +1,140 @@
+/* ==========================================================================
+   Thoughts on styling approach
+   ========================================================================== */
+
+/**
+ * Using BEM (Block Element Modifier) methodology with custom element classes
+ * helps encapsulate styles, avoids reliance on semantic tag names,
+ * and improves maintainability and parsing performance in CSS preprocessors.
+ *
+ * However, in simple, single-use layouts like this one, it's acceptable to
+ * style semantic elements directly (e.g., h1, article, p) without additional classes.
+ * If layout reuse or scaling is expected, switching to BEM naming is recommended.
+ */
+
+/* ==========================================================================
+   Base styles
+   ========================================================================== */
+
+/**
+ * Apply a centered layout with background color and primary font styles.
+ * Semantic tag 'body' is used here for universal page styling.
+ */
+body {
+  display: flex;
+  min-height: 100vh;
+  text-align: center;
+  color: hsl(218, 44%, 22%);
+  font-family: "Outfit", sans-serif;
+  background-color: hsl(212, 45%, 89%);
+}
+
+/* ==========================================================================
+     Layout container
+     ========================================================================== */
+
+/**
+   * This container acts as the central layout block.
+   * If reused or expanded, consider renaming with BEM (e.g., `.page__container`).
+   */
+.container {
+  width: 348px;
+  margin: auto;
+  padding: 28px;
+  align-self: center;
+}
+
+/* ==========================================================================
+     Main content
+     ========================================================================== */
+
+/**
+   * The 'main' tag here is semantic.
+   * No extra class is required unless layout variations are introduced.
+   */
+main {
+  margin-bottom: 34px;
+}
+
+/**
+   * Article acts as a card.
+   * If the design scales, renaming to `.card` or `.content__card` using BEM is advisable.
+   */
+article {
+  padding: 16px;
+  background-color: hsl(0, 0%, 100%);
+  border-radius: 18px;
+}
+
+/* ==========================================================================
+     Images
+     ========================================================================== */
+
+/**
+   * Direct image styling is fine for static content.
+   * For reusable components, consider `.card__image` in BEM format.
+   */
+img {
+  border-radius: 12px;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/**
+   * Shared bottom spacing between image and paragraph,
+   * useful when vertical rhythm is consistent.
+   */
+img,
+p {
+  margin-bottom: 24px;
+}
+
+/* ==========================================================================
+     Typography
+     ========================================================================== */
+
+/**
+   * Title is styled directly via the semantic tag 'h1'.
+   * For reusable components or changing layout contexts, BEM naming (e.g., `.card__title`) is preferred.
+   */
+h1 {
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+/**
+   * Padding for consistent horizontal spacing.
+   */
+h1,
+p {
+  padding-inline: 16px;
+}
+
+/**
+   * Paragraph style is clean and readable.
+   * Again, for reusable or nested components, use `.card__text` or similar.
+   */
+p {
+  font-size: 15px;
+  letter-spacing: -0.4px;
+  line-height: 18px;
+  color: hsl(216, 15%, 48%);
+}
+
+/* ==========================================================================
+     Footer
+     ========================================================================== */
+
+/**
+   * Optional footer.
+   * Suitable for static pages. For larger systems, use a class (e.g., `.page__footer`).
+   */
+footer {
+  font-size: 11px;
+}
+
+footer a {
+  color: hsl(228, 45%, 44%);
+}
